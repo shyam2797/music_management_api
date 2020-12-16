@@ -19,6 +19,5 @@ from api import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('songinfo/<int:pk>',views.song_detail),
-    path('songinfo/',views.song_list),
+    path('songcreate/',views.song_create)
 ]
