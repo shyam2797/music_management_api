@@ -10,3 +10,11 @@ class SongSerializer(serializers.Serializer):
 
     def create(self, validated_data):
         return Song.objects.create(**validated_data)
+
+    def update(self, instance, validated_data):
+        instance.song_title = validated_data.get('song_title',instance.song_title)
+        instance.album = validated_data.get('album',instance.album)
+        instance.artist = validated_data.get('artist',instance.artist)
+        instance.audio =validated_data.get('audio',instance.audio)
+        instance.save()
+        return instance
